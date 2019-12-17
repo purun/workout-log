@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>GymMemo</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/solid.min.css">
+  <link rel="stylesheet" href="css/brands.min.css">
+  <link rel="stylesheet" href="css/fontawesome.min.css">
+</head>
+
+<body>
+
+  <div class="navbar">
+    <a id="jsHome" href="#home"><i class="fas fa-home"></i></a>
+    <a id="jsCalc" href="#calc"><i class="fas fa-calculator"></i></a>
+    <a id="jsPlay" href="#play"><i class="fas fa-play"></i></a>
+    <a id="jsHistory" href="#history"><i class="fas fa-history"></i></a>
+    <a id="jsSettings" href="#settings"><i class="fas fa-cog"></i></a>
+  </div>
+
+  <div id="home" class="main">
+    <h1>Home</h1>
+    <div id="user">
+      <i class="fas fa-user"></i>
+    </div>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+  </div>
+
+  <div id="calc" class="main">
+    <h1>Calc</h1>
+  </div>
+
+  <div id="play" class="main">
+    <h1>Play</h1>
+    <button id="play_finish_btn">stop</button>
+
+    <div id="play_status">
+      Ready
+    </div>
+
+    <div id="play_headline">
+      <div id="play_stopwatch">
+        00:00:00
+      </div>
+      <div id="play_starttime">
+        (PM 09:14 ~)
+      </div>
+    </div>
+    <br>
+    <div id="play_list">
+      <div class="play__set" id="0">
+        <button id="myBtn" onclick="handleExerModalOpenBtnClk(this)">운동을 선택해주세요</button>
+        <!--<div class="work custom-select" style="width:200px;">-->        
+        <!--table-->
+        <br>
+        <div class="set__table">
+          <div class="row header">
+            <span class="cell col__set">세트수</span>
+            <span class="cell col__weight">kg</span>
+            <span class="cell col__rep">횟수</span>
+            <span class="cell col__btn">action</span>
+          </div>
+          <div class="row set__line">
+            <span class="cell col__set">1</span>
+            <span class="cell col__weight"><input type="text"></span>
+            <span class="cell col__rep"><input type="text"></span>
+            <span class="cell col__btn">
+              <!--<button onclick="handleRemoveSetBtnClk(this)"><i
+                  class="fas fa-minus"></i></button>--></span>
+          </div>
+        </div>
+        <!--button add row-->
+        <button id="add__set__btn" onclick="handleAddSetBtnClk(this)">다음 세트</button>
+      </div>
+      <!--will add div class play__set id 1, 2, 3-->
+    </div>
+    <br>
+    <!--button add work-->
+    <button id="add__work__btn">다음 운동</button>
+    <!--work modal-->
+    <!-- The Modal -->
+    <div id="exerModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content" id="0">
+        <span class="exerModalClose" onclick="handleExerModalCloseBtnClk()"><i class="fas fa-times"></i></span>
+        <p>운동을 골라주세요</p>
+        <br>
+        <form name="partRadio">
+          <input type="radio" name="part" id="chest" value="chest" checked><label for="chest">가슴</label>
+          <input type="radio" name="part" id="tricep" value="tricep"><label for="tricep">삼두</label>
+          <input type="radio" name="part" id="back" value="back"><label for="back">등</label>
+          <input type="radio" name="part" id="bicep" value="bicep"><label for="bicep">이두</label><br>
+          <input type="radio" name="part" id="legs" value="legs"><label for="legs">다리</label>
+          <input type="radio" name="part" id="shoulder" value="shoulder"><label for="shoulder">어깨</label>
+          <input type="radio" name="part" id="core" value="core"><label for="core">코어</label>
+          <input type="radio" name="part" id="etc" value="etc"><label for="etc">기타</label><br>
+        </form>
+        <br>
+        <select id="workSelect" onchange="toggleCustomWork(this)">
+          <option value="0" selected disabled>운동을 고르시오:</option>
+        </select>
+        <!-- </div>-->
+        <input type="text" id="custom__work" hidden>
+
+        <br>
+
+        <button id="work__ok__btn"><i class="fas fa-check-circle"></i></button>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="history" class="main">
+    <h1>History</h1>
+  </div>
+
+  <div id="settings" class="main">
+    <h1>Settings</h1>
+  </div>
+  <script src="app.js"></script>
+  <script src="gdrive.js"></script>
+</body>
+
+</html>
